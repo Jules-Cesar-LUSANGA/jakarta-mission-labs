@@ -1,0 +1,33 @@
+# Ignorer les fichiers générés par Maven
+/target/
+
+# Ignorer les fichiers de configuration spécifiques à l'IDE
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignorer les fichiers de configuration spécifiques à NetBeans
+/nbproject/
+/nb-configuration.xml
+
+# Ignorer les fichiers de configuration spécifiques à VS Code
+/.vscode/
+
+# Ignorer les fichiers de logs
+*.log
+
+# Ignorer les fichiers temporaires
+*.tmp
+*.swp
+*.swo
+
+# Ignorer les fichiers de sauvegarde
+*~
+
+# Ignorer les fichiers de compilation
+*.class
+
+# Ignorer les fichiers de déploiement
+*.war
+*.ear

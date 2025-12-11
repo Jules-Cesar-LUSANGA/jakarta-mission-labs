@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+
+<h:head>
+    <title>JakartaMission - Tableau de Bord</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {};
+    </script>
+</h:head>
+
+<h:body styleClass="min-h-screen bg-gray-100 p-8">
+
+    <div class="max-w-6xl mx-auto">
+        
+        <header class="text-center py-10 mb-8 bg-white rounded-xl shadow-lg">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-2">
+                🌍 Jakarta<span class="text-red-600">Mission</span>
+            </h1>
+            <p class="text-xl text-gray-600 font-medium">
+                Bienvenue sur le tableau de bord de gestion des lieux.
+            </p>
+        </header>
+
+        <section class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">
+                Actions Rapides
+            </h3>
+            
+            <h:form styleClass="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                
+                <h:commandButton value="➕ Ajouter un Lieu" action="#{navigationController.voirAjouter()}"
+                    styleClass="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 transition duration-300 ease-in-out">
+                </h:commandButton>
+                
+                <h:commandButton value="🗺️ Voir la Carte" action="#{navigationController.voirVisiter()}"
+                    styleClass="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-gray-700 bg-white hover:bg-gray-50 border-2 border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-50 transition duration-300 ease-in-out">
+                </h:commandButton>
+                
+                <h:commandButton value="ℹ️ À Propos" action="#{navigationController.voirApropos()}"
+                    styleClass="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-600 focus:ring-opacity-50 transition duration-300 ease-in-out">
+                </h:commandButton>
+                
+            </h:form>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-red-600">
+                <h4 class="text-2xl font-semibold text-gray-800 mb-3">
+                    Statut du Système
+                </h4>
+                <p class="text-gray-600">
+                    Le système est opérationnel. Vous pouvez commencer à explorer ou ajouter de nouveaux points d'intérêt immédiatement.
+                </p>
+                <div class="mt-4 text-sm font-bold text-red-600">
+                    Total de lieux enregistrés : (À intégrer)
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-gray-800">
+                <h4 class="text-2xl font-semibold text-gray-800 mb-3">
+                    Notes et Mises à Jour
+                </h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li><strong class="font-medium">10/12/2025:</strong> Ajout du support pour les descriptions longues.</li>
+                    <li><strong class="font-medium">05/12/2025:</strong> Mise à jour de l'interface utilisateur.</li>
+                    <li><strong class="font-medium">28/11/2025:</strong> Lancement de la version Alpha.</li>
+                </ul>
+            </div>
+            
+        </section>
+        
+    </div>
+</h:body>
+</html>
