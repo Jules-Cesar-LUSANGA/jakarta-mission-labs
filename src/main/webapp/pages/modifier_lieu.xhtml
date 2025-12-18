@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{lieuBean.id}" />
+        <f:viewAction action="#{lieuBean.chargerLieu}" />
+    </f:metadata>
+
+    <h:head>
+        <title>Modifier un lieu</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </h:head>
+
+    <h:body class="min-h-screen bg-gray-100 flex justify-center items-center">
+
+        <div class="max-w-xl w-full p-6">
+
+            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+                ✏️ Modifier le lieu
+            </h1>
+
+            <h:form styleClass="bg-white rounded-xl shadow-lg p-6 space-y-4">
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Nom du lieu
+                    </label>
+                    <h:inputText
+                        value="#{lieuBean.nom}"
+                        styleClass="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Description
+                    </label>
+                    <h:inputTextarea
+                        value="#{lieuBean.description}"
+                        rows="4"
+                        styleClass="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Latitude
+                        </label>
+                        <h:inputText
+                            value="#{lieuBean.latitude}"
+                            styleClass="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Longitude
+                        </label>
+                        <h:inputText
+                            value="#{lieuBean.longitude}"
+                            styleClass="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300" />
+                    </div>
+                </div>
+
+                <div class="flex justify-between pt-4">
+
+                    <h:link outcome="lieu_ajoutes.xhtml"
+                            value="⬅ Retour"
+                            styleClass="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400" />
+
+                    <h:commandButton
+                        value="💾 Enregistrer"
+                        action="#{lieuBean.modifierLieu}"
+                        styleClass="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700" />
+                </div>
+
+            </h:form>
+
+        </div>
+
+    </h:body>
+</html>

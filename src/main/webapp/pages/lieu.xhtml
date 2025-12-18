@@ -23,29 +23,29 @@
         
         <div class="mb-4">
             <h:outputLabel value="Nom du lieu :" styleClass="block text-sm font-medium text-gray-700 mb-1" />
-            <h:inputText value="" required="true" 
+            <h:inputText value="#{lieuBean.nom}" required="true" 
                          styleClass="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm transition duration-150 ease-in-out" />
         </div>
         
         <div class="mb-4">
             <h:outputLabel value="Latitude :" styleClass="block text-sm font-medium text-gray-700 mb-1" />
-            <h:inputText value="" required="true" 
+            <h:inputText value="#{lieuBean.latitude}" required="true" 
                          styleClass="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm transition duration-150 ease-in-out" />
         </div>
         
         <div class="mb-4">
             <h:outputLabel value="Longitude :" styleClass="block text-sm font-medium text-gray-700 mb-1" />
-            <h:inputText value="" required="true" 
+            <h:inputText value="#{lieuBean.longitude}" required="true" 
                          styleClass="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm transition duration-150 ease-in-out" />
         </div>
         
         <div class="mb-6">
             <h:outputLabel value="Description :" styleClass="block text-sm font-medium text-gray-700 mb-1" />
-            <h:inputTextarea value="" required="true" rows="4"
+            <h:inputTextarea value="#{lieuBean.description}" required="true" rows="4"
                              styleClass="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm transition duration-150 ease-in-out resize-none" />
         </div>
         
-        <h:commandButton value="Ajouter le Lieu" action="home" 
+        <h:commandButton value="Ajouter le Lieu" action="#{lieuBean.ajouterLieu()}" 
                              styleClass="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-lg text-sm font-semibold text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out"/>
     </h:form>
 
