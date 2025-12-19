@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Ajouter un Utilisateur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</h:head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+            Ajouter un utilisateur
+        </h2>
+        
+        <h:messages globalOnly="true" styleClass="text-red-500"/>
+
+
+        <h:form styleClass="space-y-4">
+
+            <div>
+                <h:outputLabel for="username" value="Nom d'utilisateur"
+                               styleClass="block text-sm font-medium text-gray-700"/>
+                <h:inputText id="username"
+                            value="#{utilisateurBean.username}"
+                            requiredMessage="Champ obligatoire"
+                            required="true"
+                            styleClass="mt-1 block w-full rounded-md border-black-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </h:inputText>
+                <h:message for="username" style="color: red;" />
+            </div>
+
+            <div>
+                <h:outputLabel for="email" value="Email"
+                               styleClass="block text-sm font-medium text-gray-700"/>
+                <h:inputText id="email"
+                             required="true"
+                             value="#{utilisateurBean.email}"
+                             requiredMessage="Champ obligatoire"
+                             styleClass="mt-1 block w-full rounded-md border-black-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+                <h:message for="email" style="color: red;" />
+            </div>
+
+            <div>
+                <h:outputLabel for="password" value="Mot de passe"
+                               styleClass="block text-sm font-medium text-gray-700"/>
+                <h:inputSecret id="password"
+                               required="true"
+                               value="#{utilisateurBean.password}"
+                               requiredMessage="Champ obligatoire"
+                               styleClass="mt-1 block w-full rounded-md border-black-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </h:inputSecret>
+                <h:message for="password" style="color: red;" />
+            </div>
+            <div>
+               <h:outputLabel for="confirmPassword" value="Confirmer le mot de passe"
+                               styleClass="block text-sm font-medium text-gray-700"/>
+                <h:inputSecret id="confirmPassword"
+                               required="true"
+                               value="#{utilisateurBean.confirmPassword}"
+                               requiredMessage="Champ obligatoire"
+                               styleClass="mt-1 block w-full rounded-md border-black-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </h:inputSecret>
+                <h:message for="confirmPassword" style="color: red;" />
+                
+            </div>
+            
+            <div>
+                <h:outputLabel for="description" value="Description"
+                               styleClass="block text-sm font-medium text-gray-700"/>
+                <h:inputTextarea id="description"
+                                 required="true"
+                                 value="#{utilisateurBean.description}"
+                                 requiredMessage="Champ obligatoire"
+                                 styleClass="mt-1 block w-full rounded-md border-black-300 shadow-sm"/>
+                <h:message for="description" style="color: red;" />
+            </div>
+            
+            <div>
+                <h:commandButton value="Ajouter"
+                                 action="#{utilisateurBean.ajouterUtilisateur}"
+                                 styleClass="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"/>
+            </div>
+
+        </h:form>
+    </div>
+
+</body>
+</html>
