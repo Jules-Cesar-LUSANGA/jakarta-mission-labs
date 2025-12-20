@@ -67,6 +67,89 @@
 
         <hr class="my-10 border-gray-200" />
         
+        <section class="mb-12 border-l-4 border-red-600 pl-6 py-2">
+            <h:form>
+                <div class="flex justify-between items-center">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+                        Profil utilisateur
+                    </h2>
+
+                    <h:commandButton 
+                        value="Se deconnecter" 
+                        styleClass="p-2 shadow-lg text-lg font-bold text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-600 focus:ring-opacity-50 transition duration-300 ease-in-out" 
+                        action="#{profileBean.seDeconnecter()}"
+                        onclick="return confirm('Voulez-vous vraiment vous deconnecter ?')"
+                        >
+                    </h:commandButton>
+
+                </div>
+                
+                 <h:messages globalOnly="true" styleClass="text-red-500"/>
+                
+                <div>
+                    <h:outputLabel for="username" value="Nom d'utilisateur"
+                                   styleClass="block text-sm font-medium text-gray-700"/>
+                    <h:inputText id="username"
+                                 value="#{profileBean.username}"
+                                requiredMessage="Champ obligatoire"
+                                required="true"
+                                styleClass="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </h:inputText>
+                    <h:message for="username" style="color: red;" />
+                </div>
+
+                <div>
+                    <h:outputLabel for="email" value="Email"
+                                   styleClass="block text-sm font-medium text-gray-700"/>
+                    <h:inputText id="email"
+                                 required="true"
+                                 value="#{profileBean.email}"
+                                 requiredMessage="Champ obligatoire"
+                                 styleClass="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+                    <h:message for="email" style="color: red;" />
+                </div>
+                 
+                 <div>
+                    <h:outputLabel for="password" value="Nouveau mot de passe (laisser vide pour ne pas changer)"
+                                   styleClass="block text-sm font-medium text-gray-700"/>
+                    <h:inputSecret id="password"
+                                   value="#{profileBean.password}"
+                                   styleClass="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </h:inputSecret>
+                    <h:message for="password" style="color: red;" />
+                </div>
+                <div>
+                   <h:outputLabel for="confirmPassword" value="Confirmer le nouveau mot de passe"
+                                   styleClass="block text-sm font-medium text-gray-700"/>
+                    <h:inputSecret id="confirmPassword"
+                                   value="#{profileBean.confirmPassword}"
+                                   styleClass="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </h:inputSecret>
+                    <h:message for="confirmPassword" style="color: red;" />
+
+                </div>
+            
+                <div>
+                    <h:outputLabel for="description" value="Description"
+                                   styleClass="block text-sm font-medium text-gray-700"/>
+                    <h:inputTextarea
+                        value="#{profileBean.description}"
+                        rows="4"
+                        required="true"
+                        requiredMessage="Champ obligatoire"
+                        styleClass="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-300" />
+                    <h:message for="description" style="color: red;" />
+                </div>
+                
+                <h:commandButton
+                        value="💾 Enregistrer"
+                        action="#{profileBean.modifierProfil()}"
+                        styleClass="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700" />
+            </h:form>
+        </section>
+        
+        <hr class="my-10 border-gray-200" />
+        
         <section class="text-center p-6 bg-gray-100 rounded-xl">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">
                 Rejoignez la Mission !

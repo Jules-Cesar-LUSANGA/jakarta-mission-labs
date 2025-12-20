@@ -40,6 +40,28 @@ public class UtilisateurEntrepriseBean {
         em.persist(utilisateur);
     }
     
+    @Transactional
+    public void modifierMotDePasseEtDescription(String password, String description, String email) {
+        if(!password.isEmpty()){
+            String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());        
+            em.createQuery(
+                    "UPDATE Utilisateur SET description = :description, password = :password WHERE email = :email "
+            )
+            .setParameter("description", description)
+            .setParameter("password", hashedPassword)        
+            .setParameter("email", email)
+            .executeUpdate();
+        } else {
+            em.createQuery(
+                    "UPDATE Utilisateur SET description = :description WHERE email = :email "
+            )
+            .setParameter("description", description)    
+            .setParameter("email", email)
+            .executeUpdate();
+        }
+    }
+    
+    @Transactional
     private Utilisateur verifierExistanceUtilisateur(String username, String email) {
         return em.createQuery(
             "SELECT u FROM Utilisateur u WHERE u.username = :username OR u.email = :email",
@@ -80,5 +102,20 @@ public class UtilisateurEntrepriseBean {
         } catch (Exception e) {
             return null;
         }
+    }
+    
+    public Utilisateur authentifier(String email, String password) {
+        Utilisateur utilisateur = trouverUtilisateurParEmail(email);
+        
+        if(utilisateur == null){
+            return null;
+        }
+        
+        boolean utilisateurExist = verifierMotDePasse(password, utilisateur.getPassword());
+        
+        if (utilisateurExist == true) {
+            return utilisateur;
+        }
+        return null;
     }
 }

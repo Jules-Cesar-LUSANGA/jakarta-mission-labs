@@ -9,7 +9,7 @@ public class NavigationBean {
 
     public void voirAjouter() {
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/lieu.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("lieu.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -17,7 +17,7 @@ public class NavigationBean {
 
     public void voirVisiter() {
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/lieu_ajoutes.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("lieu_ajoutes.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ public class NavigationBean {
 
     public void voirApropos() {
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/a_propos.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("a_propos.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -99,7 +99,6 @@ public class UtilisateurBean {
              // Ajouter l'utilisateur avec un mot de passe haché
             utilisateurEntrepriseBean.ajouterUtilisateur(username, email, password, description);
 
-
             // Ajout du message de succès si le mot de passe respecte les critères
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Utilisateur ajouté avec succès", null));
 
@@ -114,5 +113,5 @@ public class UtilisateurBean {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ce nom d'utilisateur ou cette adresse existe déjà", null));
         }
     }
-
+    
 }
